@@ -25,12 +25,10 @@ export class Mtcnn extends NeuralNetwork<NetParams> {
   }
 
   public async load(weightsOrUrl: Float32Array | string | undefined): Promise<void> {
-    console.warn('mtcnn is deprecated and will be removed soon')
     return super.load(weightsOrUrl)
   }
 
   public async loadFromDisk(filePath: string | undefined) {
-    console.warn('mtcnn is deprecated and will be removed soon')
     return super.loadFromDisk(filePath)
   }
 

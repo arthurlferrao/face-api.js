@@ -41,6 +41,5 @@ export default {
     if (warning.missing === 'alea')
       return
 
-    console.warn(warning.message)
   }
 }

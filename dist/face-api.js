@@ -906,17 +906,6 @@
       });
   }
 
-  function shuffleArray(inputArray) {
-      var array = inputArray.slice();
-      for (var i = array.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var x = array[i];
-          array[i] = array[j];
-          array[j] = x;
-      }
-      return array;
-  }
-
   function sigmoid(x) {
       return 1 / (1 + Math.exp(-x));
   }
@@ -1319,10 +1308,10 @@
       // check for isBrowser() first to prevent electron renderer process
       // to be initialized with wrong environment due to isNodejs() returning true
       if (isBrowser()) {
-          setEnv(createBrowserEnv());
+          return setEnv(createBrowserEnv());
       }
       if (isNodejs()) {
-          setEnv(createNodejsEnv());
+          return setEnv(createNodejsEnv());
       }
   }
   function monkeyPatch(env) {
@@ -5451,7 +5440,6 @@
       Mtcnn.prototype.load = function (weightsOrUrl) {
           return __awaiter(this, void 0, void 0, function () {
               return __generator(this, function (_a) {
-                  console.warn('mtcnn is deprecated and will be removed soon');
                   return [2 /*return*/, _super.prototype.load.call(this, weightsOrUrl)];
               });
           });
@@ -5459,7 +5447,6 @@
       Mtcnn.prototype.loadFromDisk = function (filePath) {
           return __awaiter(this, void 0, void 0, function () {
               return __generator(this, function (_a) {
-                  console.warn('mtcnn is deprecated and will be removed soon');
                   return [2 /*return*/, _super.prototype.loadFromDisk.call(this, filePath)];
               });
           });
@@ -6283,11 +6270,9 @@
       return __awaiter(this, void 0, void 0, function () {
           return __generator(this, function (_a) {
               switch (_a.label) {
-                  case 0:
-                      console.warn('allFacesSsdMobilenetv1 is deprecated and will be removed soon, use the high level api instead');
-                      return [4 /*yield*/, detectAllFaces(input, new SsdMobilenetv1Options(minConfidence ? { minConfidence: minConfidence } : {}))
-                              .withFaceLandmarks()
-                              .withFaceDescriptors()];
+                  case 0: return [4 /*yield*/, detectAllFaces(input, new SsdMobilenetv1Options(minConfidence ? { minConfidence: minConfidence } : {}))
+                          .withFaceLandmarks()
+                          .withFaceDescriptors()];
                   case 1: return [2 /*return*/, _a.sent()];
               }
           });
@@ -6298,11 +6283,9 @@
       return __awaiter(this, void 0, void 0, function () {
           return __generator(this, function (_a) {
               switch (_a.label) {
-                  case 0:
-                      console.warn('allFacesTinyYolov2 is deprecated and will be removed soon, use the high level api instead');
-                      return [4 /*yield*/, detectAllFaces(input, new TinyYolov2Options(forwardParams))
-                              .withFaceLandmarks()
-                              .withFaceDescriptors()];
+                  case 0: return [4 /*yield*/, detectAllFaces(input, new TinyYolov2Options(forwardParams))
+                          .withFaceLandmarks()
+                          .withFaceDescriptors()];
                   case 1: return [2 /*return*/, _a.sent()];
               }
           });
@@ -6313,11 +6296,9 @@
       return __awaiter(this, void 0, void 0, function () {
           return __generator(this, function (_a) {
               switch (_a.label) {
-                  case 0:
-                      console.warn('allFacesMtcnn is deprecated and will be removed soon, use the high level api instead');
-                      return [4 /*yield*/, detectAllFaces(input, new MtcnnOptions(forwardParams))
-                              .withFaceLandmarks()
-                              .withFaceDescriptors()];
+                  case 0: return [4 /*yield*/, detectAllFaces(input, new MtcnnOptions(forwardParams))
+                          .withFaceLandmarks()
+                          .withFaceDescriptors()];
                   case 1: return [2 /*return*/, _a.sent()];
               }
           });
@@ -6552,7 +6533,6 @@
   exports.recognizeFaceExpressions = recognizeFaceExpressions;
   exports.resizeResults = resizeResults;
   exports.resolveInput = resolveInput;
-  exports.shuffleArray = shuffleArray;
   exports.sigmoid = sigmoid;
   exports.ssdMobilenetv1 = ssdMobilenetv1;
   exports.tf = tfCore_esm;
